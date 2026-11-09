@@ -904,6 +904,16 @@ function Audiobook:addToMainMenu(menu_items)
                         end,
                     },
                     {
+                        text = _("Highlight words"),
+                        enabled_func = function() return (self.ui and self.ui.document) or false end,
+                        checked_func = function()
+                            return self:getSetting("highlight_words", true)
+                        end,
+                        callback = function()
+                            self:toggleSetting("highlight_words", true)
+                        end,
+                    },
+                    {
                         text = _("Group short cues (e-ink)"),
                         enabled_func = function() return (self.ui and self.ui.document) or false end,
                         checked_func = function()
